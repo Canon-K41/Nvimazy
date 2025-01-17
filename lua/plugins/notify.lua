@@ -19,9 +19,10 @@ return {
         'rcarriga/nvim-notify',
         config = function()
             require('notify').setup({
-                max_width = 50,
+                max_width = 30,
+                render = "wrapped-compact",
                 stages = 'fade_in_slide_out',
-                timeout = 5000,
+                timeout = 500,
                 background_colour = '#1e222a',
                 text_colour = '#abb2bf',
                 icons = {
