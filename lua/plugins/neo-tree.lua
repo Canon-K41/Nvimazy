@@ -102,8 +102,8 @@ return {
           git_status = {
             symbols = {
               -- Change type
-              added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+              added     = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
+              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
               deleted   = "✖",-- this can only be used in the git_status source
               renamed   = "󰁕",-- this can only be used in the git_status source
               -- Status type
@@ -145,7 +145,7 @@ return {
         commands = {},
         window = {
           position = "left",
-          width = 40,
+          width = 30,
           mapping_options = {
             noremap = true,
             nowait = true,
@@ -219,8 +219,8 @@ return {
         filesystem = {
           filtered_items = {
             visible = false, -- when true, they will just be displayed differently than normal items
-            hide_dotfiles = true,
-            hide_gitignored = true,
+            hide_dotfiles = false, -- hides files and directories starting with a dot
+            hide_gitignored = false,
             hide_hidden = true, -- only works on Windows for hidden files/directories
             hide_by_name = {
               --"node_modules"
