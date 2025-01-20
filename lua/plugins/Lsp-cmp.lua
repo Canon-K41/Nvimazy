@@ -2,12 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   dependencies = {
     "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
+    -- "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-buffer",
+    -- "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-vsnip",
+    -- "hrsh7th/cmp-nvim-lua",
+    -- "hrsh7th/cmp-vsnip",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
   },
@@ -18,7 +18,8 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require("luasnip").lsp_expand(args.body)
+          require("luasnip").lsp_expand(args.body) -- I can't use it now?
+          -- vim.fn["vsnip#anonymous"](args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -32,6 +33,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        -- { name = "vsnip" },
         { name = "luasnip" },
       }, {
         { name = "buffer" },
@@ -48,11 +50,13 @@ return {
       },
     })
 
-    cmp.setup.cmdline({ "/", "?" }, {
+    --[[ cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),
       sources = { { name = "buffer" } },
     })
-
+    require("lspconfig").rust_analyzer.setup({
+      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    })
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
@@ -60,6 +64,6 @@ return {
       }, {
         { name = "cmdline" },
       }),
-    })
+    }) ]]
   end,
 }

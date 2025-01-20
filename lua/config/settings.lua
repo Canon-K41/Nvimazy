@@ -20,22 +20,22 @@ vim.opt.foldlevelstart = 99
 vim.cmd("colorscheme tokyonight-night")
 
 
--- vim.diagnostic.config({
---   virtual_text = false,  -- 行内にエラーメッセージを表示しない
---   signs = true,          -- 行番号の横にエラーマークを表示
---   update_in_insert = false,
---   underline = true,
---   severity_sort = true,
---   float = {
---     focusable = true,
---     style = "minimal",
---     border = "rounded",
---     source = "always",
---     header = "",
---     prefix = "",
---     wrap = true,  -- エラーメッセージが長い場合に改行
---   },
--- })
+vim.diagnostic.config({
+  virtual_text = false,  -- 行内にエラーメッセージを表示しない
+  signs = true,          -- 行番号の横にエラーマークを表示
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+  float = {
+    focusable = true,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+    wrap = true,  -- エラーメッセージが長い場合に改行
+  },
+})
 -- -- カーソルホールドで浮動ウィンドウを表示
 vim.cmd [[autocmd CursorMoved * lua vim.diagnostic.open_float(nil, { focusable = false })]]
 
